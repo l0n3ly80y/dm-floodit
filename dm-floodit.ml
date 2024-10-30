@@ -45,7 +45,7 @@ let make_random_grid lines columns =
     the_grid;;
 
 let rec spread_from_coordinates color_to_spread line column ex_color grid=
-    if grid.(line).(column)=ex_color then begin
+    if grid.(line).(column)=ex_color && (ex_color<>color_to_spread) then begin
         grid.(line).(column)<-color_to_spread;
         if line>0 then begin
             spread_from_coordinates color_to_spread (line-1) column ex_color grid end;
